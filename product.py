@@ -38,3 +38,20 @@ print(products)
 for p in products:
 	print(p)
 	print(p[0],'的價錢是:', p[1])
+
+# 寫出檔案
+# 字串合併
+# 'abc' + '123' = 'abc123'
+# 'abc' * 3 = 'abcabcabc'
+
+# .csv 常用的資料儲存格式
+# 可以用excel打開
+# encoding='utf-8' 解決中文亂碼問題
+with open ('products.csv', 'w', encoding='utf-8') as f:
+	# 增加 Excel的欄位名稱
+	f.write('商品,價格\n')
+	for p in products:
+		# 合併 名稱和價格字串
+		# 寫入 product.txt
+		# ',' 為excel所需的重要分隔
+		f.write(p[0] + ',' + p[1] + '\n')
