@@ -6,7 +6,24 @@
 # |  |n   |p  |  |  |n   |p  |  |  |n   |p  |  |  |n   |p  |  |
 # |   --------   |   --------   |   --------   |   --------   |
 # |--------------|--------------|--------------|--------------|
+# 讀取檔案
+# 加以編輯
 products = []
+with open ('products.csv', 'r', encoding='utf-8') as f:
+	for line in f:
+		#去除欄位名稱
+		if '商品,價格' in line:
+			continue # 跳掉下個loop (line+1)
+		# 切割大List
+		# strip() ==> 去除 換行/空格
+		# split('切割標準')
+		# 遇到',' 分割
+		# split 完後是清單
+		name , price = line.strip().split(',')
+		products.append([name, price])
+print(products)
+
+# 使用者輸入
 while True:
 	name = input('請輸入商品名稱: ')
 	if name == 'q':
@@ -35,8 +52,8 @@ print(products)
 
 # p 大List的index
 # p[n] : n ==> sub-list index
+# 因出所有紀錄
 for p in products:
-	print(p)
 	print(p[0],'的價錢是:', p[1])
 
 # 寫出檔案
