@@ -6,22 +6,33 @@
 # |  |n   |p  |  |  |n   |p  |  |  |n   |p  |  |  |n   |p  |  |
 # |   --------   |   --------   |   --------   |   --------   |
 # |--------------|--------------|--------------|--------------|
-# 讀取檔案
-# 加以編輯
+
+# 載入 OS 
+# 檢查有沒有products.csv檔案
+import os # os : operating system
+
 products = []
-with open ('products.csv', 'r', encoding='utf-8') as f:
-	for line in f:
-		#去除欄位名稱
-		if '商品,價格' in line:
-			continue # 跳掉下個loop (line+1)
-		# 切割大List
-		# strip() ==> 去除 換行/空格
-		# split('切割標準')
-		# 遇到',' 分割
-		# split 完後是清單
-		name , price = line.strip().split(',')
-		products.append([name, price])
-print(products)
+if os.path.isfile('products.csv'):
+	print('Yes , file found')
+	# 讀取檔案
+	# 加以編輯
+	with open ('products.csv', 'r', encoding='utf-8') as f:
+		for line in f:
+			#去除欄位名稱
+			if '商品,價格' in line:
+				continue # 跳掉下個loop (line+1)
+			# 切割大List
+			# strip() ==> 去除 換行/空格
+			# split('切割標準')
+			# 遇到',' 分割
+			# split 完後是清單
+			name , price = line.strip().split(',')
+			products.append([name, price])
+	print(products)
+else:
+	print('No such file')
+
+
 
 # 使用者輸入
 while True:
