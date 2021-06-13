@@ -30,5 +30,11 @@ print(products)
 #[['珍奶 50', '紅茶 40']]
 #兩個中括弧[[]] ==> 2D list
 
-products[0][0] 
+#products[0][0] 
 #大list的第0個sub-list的第0值
+
+# p 大List的index
+# p[n] : n ==> sub-list index
+for p in products:
+	print(p)
+	print(p[0],'的價錢是:', p[1])
